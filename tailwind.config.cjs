@@ -16,6 +16,7 @@ module.exports = {
         "gray-lightest": "#F4F4F4",
         "charcoal-dark": "#2D2D2D",
         "gray-deep-very-dark": "#050505",
+        "red-bright": "#FF5252",
       },
       boxShadow: {
         "white-main": "0 5px 30px rgba(0, 0, 0, 0.1)",

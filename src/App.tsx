@@ -18,6 +18,7 @@ const themeStyles = {
 
 const App = () => {
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
+  const [enteredWord, setEnteredWord] = useState("");
   const { theme } = useContext(ThemeContext);
   return (
     <div
@@ -33,11 +34,8 @@ const App = () => {
           themeStyles.fontColor[theme.currentTheme]
         )}
       >
-        <Header
-          setSelectedFont={setSelectedFont}
-          selectedFont={selectedFont}
-        ></Header>
-        <SearchBar />
+        <Header setSelectedFont={setSelectedFont} selectedFont={selectedFont} />
+        <SearchBar enteredWord={enteredWord} setEnteredWord={setEnteredWord} />
       </div>
     </div>
   );
