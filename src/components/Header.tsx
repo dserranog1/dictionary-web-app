@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/logo.svg";
 import { fontSetter, fontType } from "../types/fonts";
 import FontDropDown from "./FontDropDown";
+import ToggleThemeSwitch from "./ToggleThemeSwitch";
 
 const Header = ({
   selectedFont,
@@ -12,12 +13,16 @@ const Header = ({
 }) => {
   return (
     <header className="mt-14 w-full">
-      <div className="flex flex-row gap-6 justify-between">
+      <div className="flex flex-row justify-between">
         <img src={logo} alt="Dictionary logo" className="w-8" />
-        <FontDropDown
-          selectedFont={selectedFont}
-          setSelectedFont={setSelectedFont}
-        />
+        <div className="flex flex-row gap-6">
+          <FontDropDown
+            selectedFont={selectedFont}
+            setSelectedFont={setSelectedFont}
+          />
+          <div className="h-9 w-[1px] bg-white-smoke"></div>
+          <ToggleThemeSwitch />
+        </div>
       </div>
     </header>
   );

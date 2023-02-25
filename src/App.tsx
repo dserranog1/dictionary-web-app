@@ -1,6 +1,8 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import { ThemeContext } from "./providers/ThemeContext";
 import { fontType } from "./types/fonts";
 
 export const fonts: fontType[] = [
@@ -9,20 +11,34 @@ export const fonts: fontType[] = [
   { id: 3, name: "Mono", value: "font-mono" },
 ];
 
+const themeStyles = {
+  fontColor: { light: "text-charcoal-dark", dark: "text-white" },
+  background: { light: "bg-white", dark: "bg-gray-deep-very-dark" },
+};
+
 const App = () => {
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
+  const { theme } = useContext(ThemeContext);
   return (
     <div
       className={classNames(
-        "flex flex-col items-center justify-center mx-96",
-        selectedFont.value
+        "h-screen w-screen",
+        themeStyles.background[theme.currentTheme]
       )}
     >
-      <Header
-        setSelectedFont={setSelectedFont}
-        selectedFont={selectedFont}
-      ></Header>
-      <body>rest of the body goes here</body>
+      <div
+        className={classNames(
+          "flex flex-col items-center justify-center w-[736px] mx-auto gap-14",
+          selectedFont.value,
+          themeStyles.fontColor[theme.currentTheme]
+        )}
+      >
+        <Header
+          setSelectedFont={setSelectedFont}
+          selectedFont={selectedFont}
+        ></Header>
+        <SearchBar />
+      </div>
     </div>
   );
 };
