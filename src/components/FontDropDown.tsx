@@ -30,7 +30,7 @@ const FontDropDown = ({
         <img src={downArrow} alt="Down Arrow" />
         <Listbox.Options
           className={classNames(
-            "absolute top-9 rounded-2xl right-0 w-48 h-36 flex flex-col items-center justify-center z-10",
+            "absolute top-9 right-0 z-10 flex h-36 w-48 flex-col items-center justify-center rounded-2xl",
             themeStyles.dropdown.background[theme.currentTheme],
             themeStyles.dropdown.shadow[theme.currentTheme]
           )}
@@ -38,7 +38,7 @@ const FontDropDown = ({
           {fonts.map((font) => (
             <Listbox.Option
               className={classNames(
-                "hover:text-purple-medium-deep font-bold",
+                "font-bold hover:text-purple-medium-deep",
                 font.value
               )}
               key={font.id}

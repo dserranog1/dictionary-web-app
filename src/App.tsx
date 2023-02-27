@@ -29,7 +29,7 @@ const App = () => {
     >
       <div
         className={classNames(
-          "flex flex-col items-center justify-center w-[736px] mx-auto gap-14",
+          "items -center mx-auto flex w-[736px] flex-col justify-center gap-14 ",
           selectedFont.value,
           themeStyles.fontColor[theme.currentTheme]
         )}

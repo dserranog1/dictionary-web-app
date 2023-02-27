@@ -26,10 +26,10 @@ const SearchBar = ({
     }
   };
   return (
-    <form className="w-full relative" onSubmit={handleSubmit}>
+    <form className="relative w-full" onSubmit={handleSubmit}>
       <input
         className={classNames(
-          "w-full h-16 rounded-2xl p-6 focus:outline-none font-bold focus:border-[1px] focus:border-purple-medium-deep z-0",
+          "z-0 h-16 w-full rounded-2xl p-6 font-bold focus:border-[1px] focus:border-purple-medium-deep focus:outline-none",
           themeStyles.background[theme.currentTheme],
           isFieldEmpty && "border-[1px] border-red-bright"
         )}
@@ -44,13 +44,13 @@ const SearchBar = ({
         }}
       />
       {isFieldEmpty && (
-        <span className="text-red-bright mt-2">Whoops, cant be empty…</span>
+        <span className="mt-2 text-red-bright">Whoops, cant be empty…</span>
       )}
       <button>
         <img
           src={SearchIcon}
           alt="Search Icon"
-          className="absolute top-6 w-4 right-6 "
+          className="absolute top-6 right-6 w-4 "
         />
       </button>
     </form>
