@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { WordType } from "../types/words";
+import WordFound from "./WordFound";
 import WordNotFound from "./WordNotFound";
 
 const helloWord: WordType = [
@@ -83,11 +84,7 @@ const WordDisplay = ({ enteredWord }: { enteredWord: string }) => {
     }
   }, [enteredWord]);
   if (isWordDefined) {
-    return (
-      <div>
-        displaying word <h1>{wordInformation.word}</h1>
-      </div>
-    );
+    return <WordFound wordInformation={wordInformation} />;
   }
   return <WordNotFound />;
 };
