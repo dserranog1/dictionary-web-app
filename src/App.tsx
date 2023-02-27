@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useContext, useState } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
+import WordDisplay from "./components/WordDisplay";
 import { ThemeContext } from "./providers/ThemeContext";
 import { fontType } from "./types/fonts";
 
@@ -35,7 +36,8 @@ const App = () => {
         )}
       >
         <Header setSelectedFont={setSelectedFont} selectedFont={selectedFont} />
-        <SearchBar enteredWord={enteredWord} setEnteredWord={setEnteredWord} />
+        <SearchBar setEnteredWord={setEnteredWord} />
+        <WordDisplay enteredWord={enteredWord} />
       </div>
     </div>
   );

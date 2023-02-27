@@ -8,21 +8,20 @@ const themeStyles = {
 };
 
 const SearchBar = ({
-  enteredWord,
   setEnteredWord,
 }: {
-  enteredWord: string;
   setEnteredWord: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const { theme } = useContext(ThemeContext);
   const [isFieldEmpty, setIsFieldEmpty] = useState(false);
+  const [inputWord, setInputWord] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!enteredWord) {
+    if (!inputWord) {
       setIsFieldEmpty(true);
     } else {
-      //handle submit
+      setEnteredWord(inputWord);
     }
   };
   return (
@@ -37,9 +36,9 @@ const SearchBar = ({
         name="query"
         id="smth"
         placeholder="Search for any word.."
-        value={enteredWord}
+        value={inputWord}
         onChange={(e) => {
-          setEnteredWord(e.target.value);
+          setInputWord(e.target.value);
           e.target.value && setIsFieldEmpty(false);
         }}
       />
