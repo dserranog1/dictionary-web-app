@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div
       className={classNames(
-        "h-screen w-screen",
+        "h-full",
         themeStyles.background[theme.currentTheme]
       )}
     >

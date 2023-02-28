@@ -17,7 +17,7 @@ export type WordType = [
       definitions: [
         {
           definition: string;
-          example: string;
+          example?: string;
           synonyms: string[];
           antonyms: string[];
         }
