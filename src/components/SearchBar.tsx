@@ -36,7 +36,7 @@ const SearchBar = ({
         type="search"
         name="query"
         id="smth"
-        placeholder="Search for any word.."
+        placeholder="Search for any word..."
         value={inputWord}
         onChange={(e) => {
           setInputWord(e.target.value);

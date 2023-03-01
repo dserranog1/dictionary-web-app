@@ -9,7 +9,13 @@ const WordFound = ({
   wordInformation: WordType[number];
   setEnteredWord: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const audio = new Audio(wordInformation.phonetics[0].audio);
+  let audioUrl = wordInformation.phonetics[0].audio;
+  let i = 1;
+  while (!audioUrl) {
+    audioUrl = wordInformation.phonetics[i].audio;
+    i += 1;
+  }
+  const audio = new Audio(audioUrl);
   return (
     <main className="flex w-full flex-col gap-10">
       <div className="flex w-full flex-row justify-between">
