@@ -9,6 +9,7 @@ const WordFound = ({
   wordInformation: WordType[number];
   setEnteredWord: React.Dispatch<React.SetStateAction<string>>;
 }) => {
+  const audio = new Audio(wordInformation.phonetics[0].audio);
   return (
     <main className="flex w-full flex-col gap-10">
       <div className="flex w-full flex-row justify-between">
@@ -18,7 +19,11 @@ const WordFound = ({
             {wordInformation.phonetic}
           </h4>
         </div>
-        <button>
+        <button
+          onClick={() => {
+            audio.play();
+          }}
+        >
           <img src={IconPlay} className="w-[75px]" alt="Play Sound Icon" />
         </button>
       </div>
