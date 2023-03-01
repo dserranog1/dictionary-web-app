@@ -2,6 +2,7 @@ export type WordType = [
   {
     word: string;
     phonetic: string;
+    sourceUrls: string[];
     phonetics: [
       {
         text: string;
@@ -18,10 +19,10 @@ export type WordType = [
         {
           definition: string;
           example?: string;
-          synonyms: string[];
-          antonyms: string[];
         }
       ];
+      synonyms?: string[];
+      antonyms?: string[];
     }[];
   }
 ];

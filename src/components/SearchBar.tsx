@@ -27,8 +27,9 @@ const SearchBar = ({
   return (
     <form className="relative w-full" onSubmit={handleSubmit}>
       <input
+        autoComplete="off"
         className={classNames(
-          "z-0 h-16 w-full rounded-2xl p-6 font-bold focus:border-[1px] focus:border-purple-medium-deep focus:outline-none",
+          "z-0 h-16 w-full rounded-2xl fill-none p-6 font-bold focus:border-[1px] focus:border-purple-medium-deep focus:outline-none",
           themeStyles.background[theme.currentTheme],
           isFieldEmpty && "border-[1px] border-red-bright"
         )}

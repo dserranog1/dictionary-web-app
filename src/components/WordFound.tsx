@@ -4,8 +4,10 @@ import MeaningSection from "./MeaningSection";
 
 const WordFound = ({
   wordInformation,
+  setEnteredWord,
 }: {
   wordInformation: WordType[number];
+  setEnteredWord: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
     <main className="flex w-full flex-col gap-10">
@@ -21,9 +23,31 @@ const WordFound = ({
         </button>
       </div>
       <div className="flex flex-col gap-10">
-        {wordInformation.meanings.map((meaning) => {
+        {wordInformation.meanings.map((meaning, idx) => {
           return (
-            <MeaningSection meaning={meaning} key={meaning.partOfSpeech} />
+            <div key={idx}>
+              <MeaningSection meaning={meaning} />
+              {meaning.synonyms && meaning.synonyms.length > 0 && (
+                <div className="flex flex-row gap-5">
+                  <span className="text-gray-dark">Synonyms </span>
+                  <div className="mb-5 flex flex-row flex-wrap gap-2">
+                    {meaning.synonyms.map((synonym, idx) => {
+                      return (
+                        <button
+                          onClick={() => {
+                            setEnteredWord(synonym);
+                          }}
+                          className="font-bold text-purple-medium-deep hover:underline"
+                          key={idx}
+                        >
+                          {synonym}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           );
         })}
       </div>

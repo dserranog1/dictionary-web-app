@@ -37,7 +37,10 @@ const App = () => {
       >
         <Header setSelectedFont={setSelectedFont} selectedFont={selectedFont} />
         <SearchBar setEnteredWord={setEnteredWord} />
-        <WordDisplay enteredWord={enteredWord} />
+        <WordDisplay
+          enteredWord={enteredWord}
+          setEnteredWord={setEnteredWord}
+        />
       </div>
     </div>
   );
