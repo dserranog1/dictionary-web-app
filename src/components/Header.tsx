@@ -12,7 +12,7 @@ const Header = ({
   setSelectedFont: fontSetter;
 }) => {
   return (
-    <header className="mt-14 w-full">
+    <header className="w-full">
       <div className="flex flex-row justify-between">
         <img src={logo} alt="Dictionary logo" className="w-8" />
         <div className="flex flex-row gap-6">

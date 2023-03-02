@@ -24,10 +24,10 @@ const FontDropDown = ({
   return (
     <Listbox value={selectedFont} onChange={setSelectedFont}>
       <Listbox.Button className="relative flex flex-row items-center gap-4">
-        <span className={classNames("text-base font-bold")}>
+        <span className={classNames("text-sm font-bold md:text-base")}>
           {selectedFont.name}
         </span>
-        <img src={downArrow} alt="Down Arrow" />
+        <img className="w-3" src={downArrow} alt="Down Arrow" />
         <Listbox.Options
           className={classNames(
             "absolute top-9 right-0 z-10 flex h-36 w-48 flex-col items-center justify-center rounded-2xl",

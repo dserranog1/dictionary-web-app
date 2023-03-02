@@ -30,7 +30,7 @@ const App = () => {
     >
       <div
         className={classNames(
-          "items -center mx-auto flex w-[736px] flex-col justify-center gap-14 ",
+          "mx-6 flex flex-col gap-6 pb-20 pt-6 md:mx-auto md:w-1/2 md:gap-14 md:pb-28 md:pt-14",
           selectedFont.value,
           themeStyles.fontColor[theme.currentTheme]
         )}

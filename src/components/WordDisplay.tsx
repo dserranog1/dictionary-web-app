@@ -98,7 +98,7 @@ const WordDisplay = ({
           className="text-sm hover:cursor-pointer hover:underline"
         >
           <div className="h-[1px] w-full bg-white-smoke"></div>
-          <div className="mt-5 mb-32">
+          <div className="mt-5 text-sm ">
             <span className="text-gray-dark">Source:</span>{" "}
             {wordInformation.sourceUrls[0]}
           </div>
