@@ -11,7 +11,7 @@ const WordFound = ({
 }) => {
   let audioUrl: string | undefined;
   if (wordInformation.phonetics.length > 0) {
-    let audioUrl = wordInformation.phonetics[0].audio;
+    audioUrl = wordInformation.phonetics[0].audio;
     let i = 1;
     while (!audioUrl) {
       if (i == wordInformation.phonetics.length) break;
@@ -21,7 +21,6 @@ const WordFound = ({
   } else {
     audioUrl = undefined;
   }
-  console.log(audioUrl);
   const audio = new Audio(audioUrl);
   //TODO check for phonetic property
   return (
