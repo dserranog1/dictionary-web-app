@@ -1,6 +1,8 @@
 import { WordType } from "../types/words";
 import IconPlay from "../assets/icon-play.svg";
 import MeaningSection from "./MeaningSection";
+import { checkForAvailableAudio } from "../utils/audioCheck";
+import { checkForPhoneticText } from "../utils/phoneticTextCheck";
 
 const WordFound = ({
   wordInformation,
@@ -9,18 +11,9 @@ const WordFound = ({
   wordInformation: WordType[number];
   setEnteredWord: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  let audioUrl: string | undefined;
-  if (wordInformation.phonetics.length > 0) {
-    audioUrl = wordInformation.phonetics[0].audio;
-    let i = 1;
-    while (!audioUrl) {
-      if (i == wordInformation.phonetics.length) break;
-      audioUrl = wordInformation.phonetics[i].audio;
-      i += 1;
-    }
-  } else {
-    audioUrl = undefined;
-  }
+  const audioUrl = checkForAvailableAudio(wordInformation);
+  const phoneticText = checkForPhoneticText(wordInformation);
+
   const audio = new Audio(audioUrl);
   //TODO check for phonetic property
   return (
@@ -31,7 +24,7 @@ const WordFound = ({
             {wordInformation.word}
           </h1>
           <h4 className="text-lg font-normal text-purple-medium-deep md:text-2xl">
-            {wordInformation.phonetic}
+            {phoneticText}
           </h4>
         </div>
         <button

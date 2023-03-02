@@ -1,10 +1,10 @@
 export type WordType = [
   {
     word: string;
-    phonetic: string;
+    phonetic?: string;
     sourceUrls: string[];
     phonetics: {
-      text: string;
+      text?: string;
       audio?: string;
     }[];
     origin: string;
