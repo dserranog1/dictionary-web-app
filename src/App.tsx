@@ -18,6 +18,7 @@ const themeStyles = {
 };
 
 const App = () => {
+  //TODO add routing
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
   const [enteredWord, setEnteredWord] = useState("");
   const { theme } = useContext(ThemeContext);
