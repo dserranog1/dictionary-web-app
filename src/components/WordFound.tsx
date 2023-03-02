@@ -12,9 +12,11 @@ const WordFound = ({
   let audioUrl = wordInformation.phonetics[0].audio;
   let i = 1;
   while (!audioUrl) {
+    if (i == wordInformation.phonetics.length) break;
     audioUrl = wordInformation.phonetics[i].audio;
     i += 1;
   }
+  console.log(audioUrl);
   const audio = new Audio(audioUrl);
   //TODO check for phonetic property
   return (
@@ -30,7 +32,11 @@ const WordFound = ({
         </div>
         <button
           onClick={() => {
-            audio.play();
+            if (audioUrl) {
+              audio.play();
+            } else {
+              alert("Sorry there's no sound for this word!");
+            }
           }}
         >
           <img
