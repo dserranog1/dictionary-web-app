@@ -9,12 +9,17 @@ const WordFound = ({
   wordInformation: WordType[number];
   setEnteredWord: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  let audioUrl = wordInformation.phonetics[0].audio;
-  let i = 1;
-  while (!audioUrl) {
-    if (i == wordInformation.phonetics.length) break;
-    audioUrl = wordInformation.phonetics[i].audio;
-    i += 1;
+  let audioUrl: string | undefined;
+  if (wordInformation.phonetics.length > 0) {
+    let audioUrl = wordInformation.phonetics[0].audio;
+    let i = 1;
+    while (!audioUrl) {
+      if (i == wordInformation.phonetics.length) break;
+      audioUrl = wordInformation.phonetics[i].audio;
+      i += 1;
+    }
+  } else {
+    audioUrl = undefined;
   }
   console.log(audioUrl);
   const audio = new Audio(audioUrl);
